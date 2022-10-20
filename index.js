@@ -20,7 +20,7 @@ app.listen(3333, async() => {
     console.log("Server started successfully");
     let user = await User.create({
         email:"abc@email.com",
-        password: 12345,
+        password: 01234,
         userName:"abc"
     });
     console.log(user);
