@@ -1,6 +1,7 @@
 const passport = require("passport"); // package used for authentication in nodeJs.
 const localStrategy = require ('passport-local').Strategy;
 const User = require("../models/user");
+// const { route } = require("../routes");
 const JWTStrategy = require("passport-jwt").Strategy;
 const ExtractJWT = require("passport-jwt").ExtractJwt;
 
@@ -22,7 +23,7 @@ async(email, password, done) => {
 
 passport.use('login', new localStrategy({
     usernameField: 'email',
-    passwordField: 'passport'
+    passwordField: 'password'
 },
 async(email, password, done) =>{
     try {
@@ -37,14 +38,14 @@ async(email, password, done) =>{
         return done(null, user, {message:"Logged in successfully"});
     } catch (error) {
         console.log(error);
-        done(error);
+        return done(error);
     }
 }
 ))
 
 passport.use(new JWTStrategy(
     {
-        secretOrKey:'Top_Secret',
+        secretOrKey:'TOP_SECRET',
         jwtFromRequest: ExtractJWT.fromUrlQueryParameter('secret_token')
     },
     async (token, done) => {
@@ -55,4 +56,7 @@ passport.use(new JWTStrategy(
             done(error);
         }
     }
-))
+));
+
+
+
