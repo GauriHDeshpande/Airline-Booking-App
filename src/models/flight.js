@@ -22,12 +22,13 @@ const flightSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    departureTime:{
-        type: timestamp
-    },
-    arivalTime:{
-        type: timestamp
-    },
+    // departureTime:{
+    //     type: Number,
+    //     defult: (new Date()).getTime()
+    // },
+    // arivalTime:{
+    //     timestamps: true
+    // },
     flightNumber:{
         type: String,
         required: true

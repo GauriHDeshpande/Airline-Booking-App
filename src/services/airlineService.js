@@ -1,4 +1,4 @@
-const Airline = require("../models/flight");
+const Airline = require("../models/airline");
 
 const createAirline = async (data) =>{
     try {
@@ -16,6 +16,7 @@ const createAirline = async (data) =>{
 const destroyAirline = async(name) => {
     try {
         const response = await Airline.findOneAndDelete({name: name});
+        // console.log(response);
         return response;
     } catch (error) {
         console.log(error);
@@ -31,9 +32,9 @@ const getAirline = async(name) => {
     }
 }
 
-const getAllAirlines = async(name) => {
+const getAllAirlines = async() => {
     try {
-        const response = await Airline.find({name: name});
+        const response = await Airline.find();
         return response;
     } catch (error) {
         console.log(error);
