@@ -4,6 +4,7 @@ const router = express.Router();
 const helpController = require("../../controllers/helpController");
 const airlineController = require("../../controllers/airlineController");
 const flightController = require("../../controllers/flightController");
+const reviewController = require("../../controllers/reviewController");
 
 router.get("/help", helpController.helpDetails);
 router.post("/airline", airlineController.createAirline);
@@ -16,6 +17,11 @@ router.get("/flight", flightController.getAllFlights);
 router.post("/flight", flightController.createFlight);
 // router.post("/flight", flightController.updateFlight);
 router.delete("/flight", flightController.destroyFlight);
+
+router.post("/review", reviewController.createReview);
+router.get("/review/:flightId/:userId", reviewController.getReview);
+router.get("/review/:flightId", reviewController.getAllReviews);
+router.delete("/review/:flightId", reviewController.destroyReview);
 
 module.exports = router;
 
