@@ -6,12 +6,12 @@ const createFlight = async (data) =>{
             departureAirport: data.departureAirport,
             arrivalAirport: data.arrivalAirport,
             duration: data.duration,
-            filightDate: data.filightDate,
+            // filightDate: data.filightDate,
             departureTime: data.departureTime,
             arrivalTime: data.arrivalTime,
             flightNumber: data.flightNumber,
             price: data.price,
-            airline: data.airline
+            airline: data.airlineId
         }
         const response = await new Flight(newFlight).save();
         return response;
@@ -47,9 +47,9 @@ const getFlight = async(flightNumber) => {
     }
 }
 
-const getAllflights = async(flightNumber) => {
+const getAllFlights = async() => {
     try {
-        const response = await Flight.find({flightNumber: flightNumber});
+        const response = await Flight.find();
         return response;
     } catch (error) {
         console.log(error);
@@ -61,6 +61,6 @@ module.exports = {
     updateFlight,
     destroyFlight,
     getFlight,
-    getAllflights
+    getAllFlights
 };
 

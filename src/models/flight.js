@@ -5,7 +5,7 @@ const flightSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    arivalAirport:{
+    arrivalAirport:{
         type: String,
         required: true
     },
@@ -22,13 +22,12 @@ const flightSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    // departureTime:{
-    //     type: Number,
-    //     defult: (new Date()).getTime()
-    // },
-    // arivalTime:{
-    //     timestamps: true
-    // },
+    departureTime:{
+        type: String
+    },
+    arivalTime:{
+        type: String
+    },
     flightNumber:{
         type: String,
         required: true
